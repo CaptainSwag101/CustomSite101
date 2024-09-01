@@ -5,6 +5,7 @@ const today = new Date();
 <footer>
 	&copy; {today.getFullYear()} James Pelster "CaptainSwag101". All rights reserved.
 	<div class="social-links">
+		<!--
 		<a href="https://m.webtoo.ls/@astro" target="_blank">
 			<span class="sr-only">Follow Astro on Mastodon</span>
 			<svg
@@ -28,8 +29,9 @@ const today = new Date();
 				></path></svg
 			>
 		</a>
-		<a href="https://github.com/withastro/astro" target="_blank">
-			<span class="sr-only">Go to Astro's GitHub repo</span>
+		-->
+		<a href="https://github.com/CaptainSwag101" target="_blank">
+			<span class="sr-only">Go to my GitHub page</span>
 			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github"
 				><path
 					fill="currentColor"
@@ -42,7 +44,7 @@ const today = new Date();
 <style>
 	footer {
 		padding: 2em 1em 6em 1em;
-		background: linear-gradient(var(--gray-gradient)) no-repeat;
+		background: var(--gray-gradient) no-repeat;
 		color: var(--font-white);
 		text-align: center;
 	}
