@@ -17,9 +17,11 @@ const posts = (await getCollection('blog')).sort(
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
 			main {
-				width: 960px;
+				width: 80%;
+				min-width: 960px;
 			}
 			ul {
+				align-items: end;
 				display: flex;
 				flex-wrap: wrap;
 				gap: 2rem;
@@ -29,6 +31,7 @@ const posts = (await getCollection('blog')).sort(
 			}
 			ul li {
 				width: calc(50% - 1rem);
+				max-width: 600px;
 			}
 			ul li * {
 				text-decoration: none;
