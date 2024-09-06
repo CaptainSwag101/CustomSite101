@@ -91,6 +91,11 @@ p {
 .prose p {
 	margin-bottom: 2em;
 }
+.footnotes {
+	margin-top: 3rem;
+	color: var(--font-gray);
+	font-size: 0.9rem;
+}
 textarea {
 	width: 100%;
 	font-size: 16px;
@@ -127,10 +132,12 @@ blockquote {
 ol {
 	list-style-type: decimal;
 	list-style-position: inside;
+	padding-bottom: 2rem;
 }
 ul {
 	list-style-type: circle;
 	list-style-position: inside;
+	padding-bottom: 2rem;
 }
 hr {
 	border: none;
