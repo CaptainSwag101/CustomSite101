@@ -1,7 +1,7 @@
 ---
 title: 'NASSP Refactoring Ideas'
 description: 'Re-engineering a 20-year-old space flight simulator'
-pubDate: 'Sep 5, 2024'
+pubDate: 'Sep 6, 2024'
 heroImage: '/img/blog/nassp-refactor/thumb.png'
 ---
 
@@ -15,3 +15,4 @@ But if improving things were an easy task, it would have been done long ago. Not
 
 ## Build System and Project Files
 
+As a result of being around for so long, NASSP's project structure
