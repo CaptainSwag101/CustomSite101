@@ -5,9 +5,7 @@ pubDate: 'Sep 5, 2024'
 heroImage: '/img/blog/nassp-refactor/thumb.png'
 ---
 
-Hoo boy, this one is probably going to be a doozy. For those of you who aren't familiar with NASSP, check out [this post.](/blog/what-is-nassp)
-
-And good grief, how much code that requires! As I write this, there's approximately *300,000 lines of code*:
+Hoo boy, this one is probably going to be a doozy. For those of you who aren't familiar with NASSP, check out [this post.](/blog/what-is-nassp) With all that in mind, I want to focus on how much code NASSP requires to accomplish all the things it does. As I write this, there's approximately *300,000 lines of code*:
 
 ![Codebase statistics](/img/blog/nassp-refactor/nassp_code_count.png)
 
