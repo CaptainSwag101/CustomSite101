@@ -124,6 +124,14 @@ blockquote {
 	margin: 0px;
 	font-size: 1.333em;
 }
+ol {
+	list-style-type: decimal;
+	list-style-position: inside;
+}
+ul {
+	list-style-type: circle;
+	list-style-position: inside;
+}
 hr {
 	border: none;
 	border-top: 1px solid var(--bg-slate-dark);
