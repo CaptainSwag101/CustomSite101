@@ -17,21 +17,20 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			main {
 				width: calc(100% - 2em);
 				max-width: 100%;
-				margin: 0;
+				margin: auto;
 			}
 			.hero-image {
 				width: 100%;
 			}
 			.hero-image img {
 				display: block;
-				margin: 0 auto;
+				margin: auto;
 				border-radius: 12px;
 				box-shadow: var(--box-shadow);
 			}
 			.prose {
 				width: 80%;
 				max-width: calc(100% - 2em);
-				min-width: 720px;
 				margin: auto;
 				padding: 1em;
 				color: rgb(var(--gray-light));
@@ -51,6 +50,19 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			}
 			.last-updated-on {
 				font-style: italic;
+			}
+			@media (max-width: 720px) {
+				body {
+					font-size: 18px;
+				}
+				main {
+					padding: 1em;
+					max-width: calc(100% - 1em);
+				}
+				.prose {
+					width: calc(100% - 1em);
+					max-width: calc(100% - 1em);
+				}
 			}
 		</style>
 	</head>
