@@ -1,7 +1,7 @@
 ---
 title: 'What is NASSP?'
 description: 'The most accurate Apollo simulation (as far as we know)'
-pubDatetime: 2024-09-06T13:46:00-07:00
+pubDatetime: 2024-09-06T13:46:00
 ogImage: '@assets/images/what-is-nassp/thumb.png'
 tags: 
     - nassp
