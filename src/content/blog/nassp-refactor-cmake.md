@@ -1,13 +1,15 @@
 ---
 title: 'NASSP Refactoring - CMake'
 description: 'Porting a 20-year-old codebase to a new build system'
-pubDatetime: 2024-09-08
+pubDatetime: 2024-09-08T14:48:00-07:00
 ogImage: '@assets/images/nassp-refactor-cmake/thumb.png'
 tags: 
     - nassp
     - programming
     - space
     - Project Apollo
+    - refactoring
+    - cmake
 ---
 
 As a result of being around for so long, NASSP's project structure has seen many iterations and revisions across the years. Our IDE of choice is Visual Studio Community, and we use its related MSBuild-style project and solution files to describe our various libraries and vessels to be built. The current project files can be traced all the way back to project files targeted at Visual C++ 6.0, development software which released in 1998, and from there the projects were upgraded progressively (likely though automated processes) to target newer versions of Visual C++. Over the years, these project files have accrued many discrepancies and legacy baggage that makes maintenance difficult. Most vessels and libraries have inconsistent build configurations compared to each other; various (and often obsolete) preprocessor flags are set with unclear purpose, or are set despite no longer being necessary; intermediate and output build filenames and directories are hard-coded when there are variables built into the MSBuild system which would allow such things to be more flexible. What's more, this has also made it difficult to build NASSP for the upcoming open-source version of the Orbiter simulator, nicknamed "OpenOrbiter". One or two libraries that we link against in the Orbiter SDK have had their filenames changed, necessitating us to go into each project that uses them and change the filename in our linker config. Not only that: since this new version of Orbiter supports 64-bit native compilation for the first time, it requires two completely new build configurations to be made for that architecture—one for debugging, one for release configuration—for every individual project targeting 64-bit versions of include headers and SDK libraries. This is time-consuming to do, and it requires making breaking changes with the main branch of our code that builds for an earlier version of the sim. As a result, there is no easy way to allow our codebase to build for both OpenOrbiter and the existing version unless we want to create not two, but four new build configurations for all 35 of our projects so we can preserve the old two, two for OpenOrbiter 32-bit builds and two for OpenOrbiter 64-bit builds.
