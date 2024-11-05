@@ -12,11 +12,6 @@ export const SITE: Site = {
   postPerPage: 6,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
   showArchives: false,
-  editPost: {
-    url: "https://github.com/satnaing/astro-paper/edit/main/src/content/blog",
-    text: "Suggest Changes",
-    appendFilePath: true,
-  },
 };
 
 export const LOCALE = {
