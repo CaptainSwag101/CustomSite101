@@ -2,12 +2,13 @@
 title: 'NASSP Refactoring - Modular Panel System, Part 1'
 description: "Or: \"Let's try not to hard-code everything this time\""
 pubDatetime: 2024-11-05
-heroImage: '@assets/images/nassp-refactor-modular-panels-pt1/thumb.png'
+ogImage: '@assets/images/nassp-refactor-modular-panels-pt1/thumb.png'
 tags: 
     - nassp
     - programming
     - space
     - Project Apollo
+draft: true
 ---
 
 This has been at the forefront of my mind lately when thinking about potential improvements for NASSP's core functionality. To establish a crucial definition first, a "panel" in the context of NASSP and Orbiter is a data structure representing a viewable region within the vessel. This panel is displayed to the pilot and rendered on top of the 3D scene the vessel is currently located within (such as flying through space or on a celestial body). A vessel typically has one or more panels to represent various locations or "viewpoints" within a vessel's cockpit or cabin area. They often contain dynamic elements like switches, gauges, computer displays, and other controls, all of which are used for interacting with the vessel and receiving information about the status of various systems. These panels can be 2D images or mapped to a 3D model dubbed the "virtual cockpit" or "VC".

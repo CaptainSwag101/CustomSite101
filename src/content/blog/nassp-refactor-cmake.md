@@ -2,7 +2,7 @@
 title: 'NASSP Refactoring - CMake'
 description: 'Porting a 20-year-old codebase to a new build system'
 pubDatetime: 2024-09-08
-heroImage: '@assets/images/nassp-refactor-cmake/thumb.png'
+ogImage: '@assets/images/nassp-refactor-cmake/thumb.png'
 tags: 
     - nassp
     - programming
