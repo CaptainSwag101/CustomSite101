@@ -16,7 +16,11 @@ export default defineConfig({
     }),
     react(),
     sitemap(),
-  ],
+  ],  
+  redirects: {
+    "/blog": "/CustomSite101/posts",
+    "/blog/[slug]": "/CustomSite101/posts/[slug]"
+  },
   markdown: {
     remarkPlugins: [
       remarkToc,
