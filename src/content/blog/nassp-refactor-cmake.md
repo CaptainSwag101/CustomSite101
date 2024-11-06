@@ -2,7 +2,7 @@
 title: 'NASSP Refactoring - CMake'
 description: 'Porting a 20-year-old codebase to a new build system'
 pubDatetime: 2024-09-08T14:48:00-07:00
-ogImage: '/CustomSite101/images/nassp-refactor-cmake/thumb.png'
+ogImage: '@assets/images/nassp-refactor-cmake/thumb.png'
 tags: 
     - nassp
     - programming
@@ -26,6 +26,6 @@ Critically, CMake also features integration within Visual Studio, meaning that d
 
 And so, I set out to recreate all 35 of our NASSP project files in CMake, with an overarching CMakeLists file that groups them all together into a larger "NASSP" superproject, similar to the Visual Studio solution file. The process took a couple weeks of gradual research and a few moments of confusion, but in the end I managed to successfully accomplish the goal. In this new branch, with a [draft pull request](https://github.com/orbiternassp/NASSP/pull/1288) in place to merge it upstream, NASSP has been fully migrated to CMake; simplifying our project files and adding flexibility while retaining the majority of our traditional workflow. I am keeping it as a draft until significant testing and experimentation can be done on this branch. Other developers in our group need time to test and adapt to the workflow changes that are unavoidable, and documentation and procedures need to be developed for porting over any outstanding pull requests or custom user-side branches so that they may continue being kept up to date with upstream commits.
 
-![Successful compilation of the CMake branch](/CustomSite101/images/nassp-refactor-cmake/compile_success.png)
+![Successful compilation of the CMake branch](@assets/images/nassp-refactor-cmake/compile_success.png)
 
 All in all, I am extremely pleased with how relatively easy it was to port our build system to CMake, considering the sheer size, scope, and age of our codebase. Furthermore, I do not consider myself to be an expert with CMake by any means, so the fact that it was possible for a relative novice to accomplish this transition bolsters my appreciation for the system. With any luck, these changes will be integrated relatively soon, and we might be able to start reaping the benefits (short and long-term) of this effort.
