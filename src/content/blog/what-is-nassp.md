@@ -8,6 +8,7 @@ tags:
     - programming
     - space
     - Project Apollo
+featured: true
 ---
 
 For over two and a half years I've contributed to a free and open-source addon called "NASSP" for the Orbiter space flight simulator program. This addon simulates the Apollo space program that landed humans on the moon in the 1960s and '70s. That is to say, it adds all the relevant space vehicles, including the Saturn IB, Saturn V, Command and Service Module, Lunar Module, and even the tangentially-related Skylab orbital workshop. Additionally, it includes the necessary logic to compute and fly the historical missions, or even plan one's own custom missions.
