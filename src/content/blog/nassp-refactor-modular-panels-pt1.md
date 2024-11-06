@@ -1,7 +1,7 @@
 ---
 title: 'NASSP Refactoring - Modular Panel System, Part 1'
 description: "Or: \"Let's try not to hard-code everything this time\""
-pubDatetime: 2024-11-05T15:36:00
+pubDatetime: 2024-11-05T15:36:00-08:00
 ogImage: '@assets/images/nassp-refactor-modular-panels-pt1/thumb.png'
 tags: 
     - nassp
