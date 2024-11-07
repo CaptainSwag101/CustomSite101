@@ -67,6 +67,9 @@
   .prose h2#table-of-contents + p {
     @apply hidden;
   }
+  .footnotes {
+    @apply text-sm;
+  }
 
   /* ===== scrollbar ===== */
   html {
