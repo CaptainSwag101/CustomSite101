@@ -50,6 +50,9 @@
   .prose a {
     @apply break-words hover:!text-skin-accent;
   }
+  .prose .footnotes {
+    @apply text-sm;
+  }
   .prose thead th:first-child,
   tbody td:first-child,
   tfoot td:first-child {
@@ -66,9 +69,6 @@
   }
   .prose h2#table-of-contents + p {
     @apply hidden;
-  }
-  .footnotes {
-    @apply text-sm;
   }
 
   /* ===== scrollbar ===== */
@@ -126,8 +126,5 @@
   }
   .focus-outline {
     @apply outline-2 outline-offset-1 outline-skin-fill focus-visible:no-underline focus-visible:outline-dashed;
-  }
-  .footnotes {
-    @apply text-sm;
   }
 }
