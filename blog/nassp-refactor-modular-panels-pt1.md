@@ -2,7 +2,7 @@
 title: 'NASSP Refactoring - Modular Panel System, Part 1'
 description: "Or: \"Let's try not to hard-code everything this time\""
 pubDatetime: 2024-11-05T15:36:00-08:00
-ogImage: '@assets/images//nassp-refactor-modular-panels-pt1/thumb.png'
+ogImage: '@assets/images/nassp-refactor-modular-panels-pt1/thumb.png'
 tags: 
     - nassp
     - programming
@@ -22,7 +22,7 @@ Rather than reverting the change that removed the modular panel code from PanelS
 
 So, what exactly might a from-scratch modular panel system look like? Here's a simplified dragram that illustrates a possible "information flow" for how we would define the panels to be used for our vessels and how that data would be subsequently built at runtime into something the user can see and interact with:
 
-![Flow diagram of how the panels might be "built"](@assets/images//nassp-refactor-modular-panels-pt1/flow-diagram.png)
+![Flow diagram of how the panels might be "built"](@assets/images/nassp-refactor-modular-panels-pt1/flow-diagram.png)
 
 So, with that general design in mind, the next path I travelled down was: what format to use for our config files? The existing PanelSDK systems code parses its own custom config syntax which vaguely resembles XML. However the parsing code for that, as previously mentioned, is rife with pointer math and other obtuse logic that is no longer well-understood or easy to scale. Even so, designing a *new* custom format would be rather silly when there are countless formats already designed and that have stable parsers for C++. My first thought was JSON, but while it is extremely mature and well-supported, its syntax can be a bit cumbersome to read in a text editor or make manual changes to. Not to mention, it's likely more complex than our needs require. So, [TOML (Tom's Obvious, Minimal Language)](https://toml.io/en/) seemed like a decent fit. There appears to be a [rather mature parsing library](https://marzer.github.io/tomlplusplus/) designed for modern C++ versions which was also GPL-compatible and featured a single-include header-only version that means no extra work necessary to integrate it into our project. Here's a basic example of what a panel config file would look like:
 
