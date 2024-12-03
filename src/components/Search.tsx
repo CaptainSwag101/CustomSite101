@@ -7,7 +7,7 @@ export type SearchItem = {
   title: string;
   description: string;
   data: CollectionEntry<"blog">["data"];
-  slug: string;
+  id: string;
 };
 
 interface Props {
@@ -109,9 +109,9 @@ export default function SearchBar({ searchList }: Props) {
         {searchResults &&
           searchResults.map(({ item, refIndex }) => (
             <Card
-              href={`/CustomSite101/posts/${item.slug}/`}
+              href={`/CustomSite101/posts/${item.id}/`}
               frontmatter={item.data}
-              key={`${refIndex}-${item.slug}`}
+              key={`${refIndex}-${item.id}`}
             />
           ))}
       </ul>
