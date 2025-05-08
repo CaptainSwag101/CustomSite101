@@ -1,15 +1,15 @@
 ---
-title: 'NASSP Refactoring - CMake'
-description: 'Porting a 20-year-old codebase to a new build system'
+title: "NASSP Refactoring - CMake"
+description: "Porting a 20-year-old codebase to a new build system"
 pubDatetime: 2024-09-08T14:48:00-07:00
-ogImage: '@/assets/images/nassp-refactor-cmake/thumb.png'
-tags: 
-    - nassp
-    - programming
-    - space
-    - Project Apollo
-    - refactoring
-    - cmake
+ogImage: "@/assets/images/nassp-refactor-cmake/thumb.png"
+tags:
+  - nassp
+  - programming
+  - space
+  - Project Apollo
+  - refactoring
+  - cmake
 ---
 
 As a result of being around for so long, NASSP's project structure has seen many iterations and revisions across the years. Our IDE of choice is Visual Studio Community, and we use its related MSBuild-style project and solution files to describe our various libraries and vessels to be built. The current project files can be traced all the way back to project files targeted at Visual C++ 6.0, development software which released in 1998, and from there the projects were upgraded progressively (likely though automated processes) to target newer versions of Visual C++. Over the years, these project files have accrued many discrepancies and legacy baggage that makes maintenance difficult. Most vessels and libraries have inconsistent build configurations compared to each other; various (and often obsolete) preprocessor flags are set with unclear purpose, or are set despite no longer being necessary; intermediate and output build filenames and directories are hard-coded when there are variables built into the MSBuild system which would allow such things to be more flexible. What's more, this has also made it difficult to build NASSP for the upcoming open-source version of the Orbiter simulator, nicknamed "OpenOrbiter". One or two libraries that we link against in the Orbiter SDK have had their filenames changed, necessitating us to go into each project that uses them and change the filename in our linker config. Not only that: since this new version of Orbiter supports 64-bit native compilation for the first time, it requires two completely new build configurations to be made for that architecture—one for debugging, one for release configuration—for every individual project targeting 64-bit versions of include headers and SDK libraries. This is time-consuming to do, and it requires making breaking changes with the main branch of our code that builds for an earlier version of the sim. As a result, there is no easy way to allow our codebase to build for both OpenOrbiter and the existing version unless we want to create not two, but four new build configurations for all 35 of our projects so we can preserve the old two, two for OpenOrbiter 32-bit builds and two for OpenOrbiter 64-bit builds.
@@ -17,6 +17,7 @@ As a result of being around for so long, NASSP's project structure has seen many
 So I started thinking about ways to improve the situation. For my initial OpenOrbiter compatibility branch, I started manually reworking the project files to try and use more variables for flexibility and started trying to remove old preprocessor definitions. I also tried changing the various buld configurations to match each other verbatim for as many sections as I could, so that I could modify them all at once via the Visual Studio interface. However, this proved even more tedious than I anticipated, and wasn't a tenable approach. It was still frustrating to even need so much information to be duplicated across configurations, and part of the issue was how the Visual Studio build system was designed.
 
 In that case, why not change it? I don't have experience with a huge variety of C++ build systems, but I was particularly curious about one: [CMake](https://cmake.org). Compared to our current way of doing things, it has a few benefits:
+
 - It is a more abstract representation of our builds than the MSBuild/Visual Studio project files, allowing a single project description to define multiple build configurations. That is, one project's CMakeLists.txt file would be able to generate a build for 32-bit or 64-bit; debug or release, with virtually zero need for duplicated code or configuration text. These project files are also considerably easier to read and understand, since they are laid out like code rather than an XML-style markup-type language. It also means that special build flags can be documented with comments so they can be sanity checked later on if they become unnecessary.
 - By using a top-level project that adds individual libraries and vessels as sub-projects, the individual vessels can inherit global configuration settings and variables easily, meaning we duplicate less configuration settings and any major changes that need to be made can be done so in just one place.
 - Since CMake incorporates code-like logic functionality into its syntax, we can perform configuration-time or compile-time checks for various things, such as the filenames of libraries we intend to link against. This allows us to have a single project structure that can simultaneously build for both our current version of Orbiter and the upcoming OpenOrbiter release, with only a few `if()` statements.
